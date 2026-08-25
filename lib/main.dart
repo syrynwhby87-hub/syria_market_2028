@@ -1,6 +1,6 @@
 // ==============================================================================
-// 1. المكتبات والثوابت ونظام الألوان والتدرجات الملكية الفاخرة 2028
-// [الجزء الأول 1/3 - التصميم العصري الفاخر]
+// منصة سوق سوريا الشامل 2028 - الكود الصريح الكامل
+// [الدفعة الأولى 1/3 - المكتبات، النماذج، المساعدات، ومدير الحالة]
 // ==============================================================================
 import 'dart:async';
 import 'dart:convert';
@@ -22,14 +22,14 @@ const String kAppOwnerEmail = 'aoaadabdo@gmail.com';
 const String kAppOwnerPhone = '0933000000';
 const String kAppOwnerWhatsApp = '0933000000';
 
-// مستودعات التخزين السحابي (Storage Buckets)
+// مستودعات التخزين السحابي
 const String kStorageBucketAds = 'ad-images';
 const String kStorageBucketBanners = 'banner-images';
 const String kStorageBucketFeedbacks = 'feedback-images';
 const String kStorageBucketChat = 'chat-attachments';
 
 // ==============================================================================
-// 2. كلاسات المساعدة وأنيميشن التحميل الهيكلي اللامع (Modern Shimmer Effect)
+// 1. كلاسات المساعدة والتأثيرات الحركية (Helpers & Effects)
 // ==============================================================================
 class PhoneHelper {
   static String formatForWhatsapp(String phone) {
@@ -40,9 +40,9 @@ class PhoneHelper {
       clean = clean.substring(1);
     }
     if (clean.startsWith('09')) {
-      clean = '963' + clean.substring(1);
+      clean = '963${clean.substring(1)}';
     } else if (clean.startsWith('9') && clean.length == 9) {
-      clean = '963' + clean;
+      clean = '963$clean';
     }
     return clean;
   }
@@ -54,11 +54,10 @@ class PhoneHelper {
 
   static String maskPhone(String phone) {
     if (phone.length <= 4) return '****';
-    return phone.substring(0, 4) + '******';
+    return '${phone.substring(0, 4)}******';
   }
 }
 
-/// أنيميشن التحميل الهيكلي اللامع (Shimmer Skeleton Effect)
 class ShimmerLoadingEffect extends StatefulWidget {
   final Widget child;
   const ShimmerLoadingEffect({Key? key, required this.child}) : super(key: key);
@@ -119,9 +118,8 @@ class _ShimmerLoadingEffectState extends State<ShimmerLoadingEffect>
 }
 
 // ==============================================================================
-// 3. نماذج وموديلات البيانات المحدثة (Data Models)
+// 2. نماذج وموديلات البيانات الكاملة (Data Models)
 // ==============================================================================
-
 class Moderator {
   final String id;
   final String email;
@@ -612,7 +610,7 @@ class CommentItem {
 }
 
 // ==============================================================================
-// 4. مدير حالة التطبيق الشامل والكاش والريل تايم (AppStateManager)
+// 3. مدير الحالة الرئيسي (AppStateManager)
 // ==============================================================================
 class AppStateManager extends ChangeNotifier {
   static final AppStateManager _instance = AppStateManager._internal();
@@ -621,21 +619,18 @@ class AppStateManager extends ChangeNotifier {
     _initDefaults();
   }
 
-  // الهوية البصرية الفاخرة (Royal Dark & Golden Palette)
   String appTitle = 'سوق سوريا الشامل';
   String appSubtitle = '2028';
   String disclaimerText =
       'تطبيق "سوق سوريا الشامل 2028" هو منصة إعلانية حرة ومفتوحة لعرض السلع والخدمات بين المستخدمين. التطبيق وإدارته غير مسؤولين عن صحة المعاملات المالية أو جودة السلع المعروضة، ويتحمل البائع والمشتري كامل المسؤولية القانونية.';
 
-  Color primaryColor = const Color(0xFF0B1120);       // كحلي ملكي عميق
-  Color secondaryColor = const Color(0xFFF59E0B);     // ذهبي ملكي متوهج
-  Color accentBlue = const Color(0xFF0284C7);         // أزرق سماوي عصري
+  Color primaryColor = const Color(0xFF0B1120);
+  Color secondaryColor = const Color(0xFFF59E0B);
   Color buttonColor = const Color(0xFF0284C7);
-  Color scaffoldBgColor = const Color(0xFFF1F5F9);    // رمادي فاتح مريح للعين
-  Color cardBgColor = Colors.white;
+  Color scaffoldBgColor = const Color(0xFFF1F5F9);
 
-  Color priceUsdColor = const Color(0xFF10B981);      // أخضر زمردي
-  Color priceSypColor = const Color(0xFFD97706);      // برتقالي دافئ
+  Color priceUsdColor = const Color(0xFF10B981);
+  Color priceSypColor = const Color(0xFFD97706);
   Color locationTextColor = const Color(0xFF64748B);
   Color titleTextColor = const Color(0xFF0F172A);
 
@@ -746,7 +741,6 @@ class AppStateManager extends ChangeNotifier {
       ),
     ];
 
-    // تصنيفات ملونة بتدرجات حيوية ممتعة بصرياً (Vibrant Category Gradients)
     categories = [
       CategoryModel(
         id: 'cars',
@@ -927,9 +921,10 @@ class AppStateManager extends ChangeNotifier {
   }
 }
 // ==============================================================================
-// 5. نافذة التسجيل الصوتي وشاشات المعرض والمتجر (Storefront & Gallery)
-// [الدفعة الثانية 2/3 - التحديث البصري العصري 2028]
+// منصة سوق سوريا الشامل 2028 - الكود الصريح الكامل
+// [الدفعة الثانية 2/3 - النوافذ، التطبيق الرئيسي، وشاشة العرض الأساسية]
 // ==============================================================================
+
 class VoiceInputDialog extends StatefulWidget {
   final String title;
   const VoiceInputDialog({Key? key, required this.title}) : super(key: key);
@@ -1041,7 +1036,8 @@ class _VoiceInputDialogState extends State<VoiceInputDialog> {
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: manager.buttonColor,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
           onPressed: () {
             final text = _voiceTextController.text.trim();
@@ -1057,7 +1053,6 @@ class _VoiceInputDialogState extends State<VoiceInputDialog> {
   }
 }
 
-/// معرض صور احترافي بشاشة كاملة مع دعم التكبير (Pinch to Zoom)
 class FullScreenZoomableGallery extends StatefulWidget {
   final List<String> imageUrls;
   final int initialIndex;
@@ -1137,7 +1132,6 @@ class _FullScreenZoomableGalleryState extends State<FullScreenZoomableGallery> {
   }
 }
 
-/// صفحة بروفايل خاصة للمتاجر والمعارض (Storefront Profile)
 class StorefrontProfileScreen extends StatelessWidget {
   final String publisherId;
   final String publisherName;
@@ -1158,7 +1152,8 @@ class StorefrontProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final manager = AppStateManager();
     final storeAds = manager.ads
-        .where((a) => a.userId == publisherId || a.publisherName == publisherName)
+        .where(
+            (a) => a.userId == publisherId || a.publisherName == publisherName)
         .toList();
 
     return Scaffold(
@@ -1181,7 +1176,8 @@ class StorefrontProfileScreen extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
-              borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
+              borderRadius:
+                  const BorderRadius.vertical(bottom: Radius.circular(24)),
             ),
             child: Column(
               children: [
@@ -1209,7 +1205,8 @@ class StorefrontProfileScreen extends StatelessWidget {
                     ),
                     if (isVerified) ...[
                       const SizedBox(width: 6),
-                      const Icon(Icons.verified_rounded, color: Colors.blueAccent, size: 22),
+                      const Icon(Icons.verified_rounded,
+                          color: Colors.blueAccent, size: 22),
                     ],
                   ],
                 ),
@@ -1225,28 +1222,40 @@ class StorefrontProfileScreen extends StatelessWidget {
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF25D366),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 10),
                       ),
-                      icon: const Icon(Icons.chat, color: Colors.white, size: 18),
+                      icon:
+                          const Icon(Icons.chat, color: Colors.white, size: 18),
                       label: const Text('واتساب المتجر',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                       onPressed: () async {
-                        final clean = PhoneHelper.formatForWhatsapp(publisherWhatsapp);
+                        final clean =
+                            PhoneHelper.formatForWhatsapp(publisherWhatsapp);
                         final uri = Uri.parse('https://wa.me/$clean');
-                        if (await canLaunchUrl(uri)) launchUrl(uri, mode: LaunchMode.externalApplication);
+                        if (await canLaunchUrl(uri))
+                          launchUrl(uri, mode: LaunchMode.externalApplication);
                       },
                     ),
                     const SizedBox(width: 10),
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: manager.buttonColor,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 10),
                       ),
-                      icon: const Icon(Icons.phone, color: Colors.white, size: 18),
+                      icon: const Icon(Icons.phone,
+                          color: Colors.white, size: 18),
                       label: const Text('اتصال مباشر',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                       onPressed: () async {
                         final uri = Uri.parse('tel:$publisherPhone');
                         if (await canLaunchUrl(uri)) launchUrl(uri);
@@ -1263,7 +1272,8 @@ class StorefrontProfileScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text('إعلانات وعروض هذا المتجر',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
                 Text('${storeAds.length} إعلان متوفر',
                     style: const TextStyle(color: Colors.grey, fontSize: 12)),
               ],
@@ -1292,7 +1302,8 @@ class StorefrontProfileScreen extends StatelessWidget {
                 final ad = storeAds[idx];
                 return Card(
                   clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14)),
                   elevation: 2,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1302,7 +1313,8 @@ class StorefrontProfileScreen extends StatelessWidget {
                           ad.imageUrls.isNotEmpty ? ad.imageUrls.first : '',
                           fit: BoxFit.cover,
                           width: double.infinity,
-                          errorBuilder: (c, _, __) => Container(color: Colors.grey.shade300),
+                          errorBuilder: (c, _, __) =>
+                              Container(color: Colors.grey.shade300),
                         ),
                       ),
                       Padding(
@@ -1313,9 +1325,13 @@ class StorefrontProfileScreen extends StatelessWidget {
                             Text(ad.title,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 12)),
                             const SizedBox(height: 2),
-                            Text(ad.priceUsd != null ? '\$${ad.priceUsd}' : '${ad.priceSyp} ل.س',
+                            Text(
+                                ad.priceUsd != null
+                                    ? '\$${ad.priceUsd}'
+                                    : '${ad.priceSyp} ل.س',
                                 style: TextStyle(
                                     color: manager.priceUsdColor,
                                     fontWeight: FontWeight.bold,
@@ -1335,7 +1351,7 @@ class StorefrontProfileScreen extends StatelessWidget {
 }
 
 // ==============================================================================
-// 6. كلاس التطبيق الجذري وإدارة الثيمات ووضع الصيانة (SyriaMarket2028App)
+// كلاس التطبيق الرئيسي (SyriaMarket2028App) مع تصحيح CardTheme القياسي
 // ==============================================================================
 class SyriaMarket2028App extends StatefulWidget {
   const SyriaMarket2028App({Key? key}) : super(key: key);
@@ -1390,11 +1406,12 @@ class _SyriaMarket2028AppState extends State<SyriaMarket2028App> {
           surface: Colors.white,
         ),
         scaffoldBackgroundColor: _manager.scaffoldBgColor,
-        cardTheme: CardThemeData(
+        cardTheme: CardTheme(
           color: Colors.white,
           elevation: 2,
           shadowColor: Colors.black.withOpacity(0.06),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         ),
         appBarTheme: AppBarTheme(
           backgroundColor: _manager.primaryColor,
@@ -1413,10 +1430,11 @@ class _SyriaMarket2028AppState extends State<SyriaMarket2028App> {
           surface: const Color(0xFF1E293B),
         ),
         scaffoldBackgroundColor: const Color(0xFF0B1120),
-        cardTheme: CardThemeData(
+        cardTheme: CardTheme(
           color: const Color(0xFF1E293B),
           elevation: 3,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF0B1120),
@@ -1508,7 +1526,7 @@ class _SyriaMarket2028AppState extends State<SyriaMarket2028App> {
 }
 
 // ==============================================================================
-// 7. شاشة صوتك مسموع - صندوق الاقتراحات والملاحظات لصاحب التطبيق (AppFeedbackScreen)
+// شاشة صوتك مسموع (AppFeedbackScreen)
 // ==============================================================================
 class AppFeedbackScreen extends StatefulWidget {
   const AppFeedbackScreen({Key? key}) : super(key: key);
@@ -1718,8 +1736,8 @@ class _AppFeedbackScreenState extends State<AppFeedbackScreen> {
                   end: Alignment.bottomLeft,
                 ),
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                    color: _manager.secondaryColor.withOpacity(0.4)),
+                border:
+                    Border.all(color: _manager.secondaryColor.withOpacity(0.4)),
               ),
               child: Row(
                 children: [
@@ -1807,8 +1825,8 @@ class _AppFeedbackScreenState extends State<AppFeedbackScreen> {
               decoration: InputDecoration(
                 labelText: 'رقم هاتفك أو بريدك (للتواصل وشكرك على الفكرة)',
                 hintText: '0933000000 أو إيميلك الشخصي',
-                prefixIcon:
-                    Icon(Icons.contact_phone_rounded, color: _manager.primaryColor),
+                prefixIcon: Icon(Icons.contact_phone_rounded,
+                    color: _manager.primaryColor),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(
@@ -1841,7 +1859,8 @@ class _AppFeedbackScreenState extends State<AppFeedbackScreen> {
                               color: _manager.primaryColor, size: 30),
                           const SizedBox(height: 4),
                           const Text('اضغط هنا لاختيار صورة من المعرض',
-                              style: TextStyle(fontSize: 11, color: Colors.grey)),
+                              style:
+                                  TextStyle(fontSize: 11, color: Colors.grey)),
                         ],
                       ),
               ),
@@ -1886,7 +1905,7 @@ class _AppFeedbackScreenState extends State<AppFeedbackScreen> {
 }
 
 // ==============================================================================
-// 8. الشاشة الرئيسية الكبرى والتصميم الفاخر (MainDashboardScreen)
+// الشاشة الرئيسية الكبرى (MainDashboardScreen)
 // ==============================================================================
 class MainDashboardScreen extends StatefulWidget {
   final bool isDarkMode;
@@ -2294,7 +2313,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14)),
                 tileColor: _manager.secondaryColor.withOpacity(0.15),
-                leading: Icon(Icons.lightbulb_rounded, color: _manager.secondaryColor),
+                leading: Icon(Icons.lightbulb_rounded,
+                    color: _manager.secondaryColor),
                 title: const Text('صوتك مسموع 💡 (صندوق الاقتراحات)',
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
@@ -2340,7 +2360,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                     children: [
                       Row(
                         children: [
-                          Icon(Icons.tune_rounded, color: _manager.primaryColor),
+                          Icon(Icons.tune_rounded,
+                              color: _manager.primaryColor),
                           const SizedBox(width: 8),
                           const Text('تصفية وفلترة متقدمة',
                               style: TextStyle(
@@ -2496,7 +2517,7 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true, // يتيح للشريط السفلي العائم أن يطفو فوق المحتوى بانسيابية
+      extendBody: true,
       drawer: _buildAppDrawer(context),
       appBar: AppBar(
         backgroundColor: _manager.primaryColor,
@@ -2576,14 +2597,17 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                     ],
                   ),
                 );
-              }).toList>,
+              }).toList(), // ✅ تم تصحيح الخطأ هنا بحذف القوس الزائد >
               onChanged: (val) {
                 if (val != null) setState(() => _selectedGovernorate = val);
               },
             ),
           ),
           IconButton(
-            icon: Icon(widget.isDarkMode ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+            icon: Icon(
+                widget.isDarkMode
+                    ? Icons.light_mode_rounded
+                    : Icons.dark_mode_rounded,
                 color: Colors.white),
             onPressed: widget.onToggleTheme,
           ),
@@ -2630,7 +2654,6 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
     );
   }
 
-  /// ميزة 1: شريط سفلي عائم عصري (Floating Glassmorphism Bottom Navigation Bar)
   Widget _buildFloatingModernBottomNav() {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -2656,7 +2679,6 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
             children: [
               _buildNavItem(0, Icons.home_rounded, 'الرئيسية'),
               _buildNavItem(1, Icons.chat_bubble_outline_rounded, 'المحادثات'),
-              // زر أضف إعلان البارز والمتوهج بالوسط
               GestureDetector(
                 onTap: () => _requireAuth(() => _openAddAdScreen()),
                 child: Container(
@@ -2677,7 +2699,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                       ),
                     ],
                   ),
-                  child: Icon(Icons.add_rounded, color: _manager.primaryColor, size: 28),
+                  child: Icon(Icons.add_rounded,
+                      color: _manager.primaryColor, size: 28),
                 ),
               ),
               _buildNavItem(3, Icons.favorite_border_rounded, 'المفضلة'),
@@ -2779,7 +2802,6 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
       children: [
         _buildCustomNewsTickerWidget(),
         _buildMultiCardHeroBannerCarousel(),
-        // شريط البحث المطور بشكل كبسولة بيضاوية (Pill-shaped search bar)
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
           child: Row(
@@ -2801,21 +2823,22 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                     controller: _searchController,
                     onChanged: (val) => setState(() => _searchQuery = val),
                     decoration: InputDecoration(
-                      hintText:
-                          'ابحث في سيارات، عقارات، هواتف وأجهزة...',
-                      hintStyle: const TextStyle(fontSize: 12, color: Colors.grey),
-                      prefixIcon:
-                          Icon(Icons.search_rounded, color: _manager.primaryColor),
+                      hintText: 'ابحث في سيارات، عقارات، هواتف وأجهزة...',
+                      hintStyle:
+                          const TextStyle(fontSize: 12, color: Colors.grey),
+                      prefixIcon: Icon(Icons.search_rounded,
+                          color: _manager.primaryColor),
                       suffixIcon: _manager.isVoiceTypingEnabled
                           ? IconButton(
-                              icon: Icon(Icons.mic_rounded, color: _manager.secondaryColor),
+                              icon: Icon(Icons.mic_rounded,
+                                  color: _manager.secondaryColor),
                               tooltip: 'البحث بالصوت',
                               onPressed: _recordSearchVoice,
                             )
                           : null,
                       border: InputBorder.none,
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                     ),
                   ),
                 ),
@@ -2839,7 +2862,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                   ],
                 ),
                 child: IconButton(
-                  icon: Icon(Icons.tune_rounded, color: _manager.primaryColor, size: 22),
+                  icon: Icon(Icons.tune_rounded,
+                      color: _manager.primaryColor, size: 22),
                   tooltip: 'تصفية وفلترة متقدمة',
                   onPressed: _showAdvancedFilterSheet,
                 ),
@@ -2862,8 +2886,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                           color: _manager.titleTextColor)),
                   const SizedBox(width: 6),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 8, vertical: 2),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                     decoration: BoxDecoration(
                         color: _manager.primaryColor.withOpacity(0.08),
                         borderRadius: BorderRadius.circular(12)),
@@ -2914,7 +2938,7 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                       )
                     : GridView.builder(
                         controller: _adListScrollController,
-                        padding: const EdgeInsets.fromLTRB(10, 4, 10, 80), // ترك مسافة للشريط العائم
+                        padding: const EdgeInsets.fromLTRB(10, 4, 10, 80),
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
@@ -2922,13 +2946,15 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                           crossAxisSpacing: 10,
                           mainAxisSpacing: 10,
                         ),
-                        itemCount: filteredAds.length + (_manager.hasMoreAds ? 1 : 0),
+                        itemCount:
+                            filteredAds.length + (_manager.hasMoreAds ? 1 : 0),
                         itemBuilder: (ctx, index) {
                           if (index == filteredAds.length) {
                             return const Center(
                               child: Padding(
                                 padding: EdgeInsets.all(12),
-                                child: CircularProgressIndicator(strokeWidth: 2),
+                                child:
+                                    CircularProgressIndicator(strokeWidth: 2),
                               ),
                             );
                           }
@@ -2955,7 +2981,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
       itemBuilder: (context, index) {
         return ShimmerLoadingEffect(
           child: Card(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -2964,7 +2991,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade300,
-                      borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+                      borderRadius:
+                          const BorderRadius.vertical(top: Radius.circular(16)),
                     ),
                   ),
                 ),
@@ -2976,9 +3004,16 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Container(height: 12, width: double.infinity, color: Colors.grey.shade300),
-                        Container(height: 12, width: 80, color: Colors.grey.shade300),
-                        Container(height: 10, width: 100, color: Colors.grey.shade300),
+                        Container(
+                            height: 12,
+                            width: double.infinity,
+                            color: Colors.grey.shade300),
+                        Container(
+                            height: 12, width: 80, color: Colors.grey.shade300),
+                        Container(
+                            height: 10,
+                            width: 100,
+                            color: Colors.grey.shade300),
                       ],
                     ),
                   ),
@@ -3103,7 +3138,10 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.12), blurRadius: 6, offset: const Offset(0, 3))
+          BoxShadow(
+              color: Colors.black.withOpacity(0.12),
+              blurRadius: 6,
+              offset: const Offset(0, 3))
         ],
       ),
       clipBehavior: Clip.antiAlias,
@@ -3116,8 +3154,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
               errorBuilder: (ctx, _, __) => Container(
                 color: const Color(0xFF1E293B),
                 child: const Center(
-                    child:
-                        Icon(Icons.campaign_rounded, color: Colors.white70, size: 40)),
+                    child: Icon(Icons.campaign_rounded,
+                        color: Colors.white70, size: 40)),
               ),
             ),
           ),
@@ -3231,7 +3269,6 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
     );
   }
 
-  /// ميزة 2: تصنيفات دائرية ملونة بتدرجات ملكية جذابة (Vibrant Circular Categories)
   Widget _buildCategoriesHorizontalBar() {
     return Container(
       height: 96,
@@ -3258,9 +3295,12 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                       height: 54,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: isSelected ? _manager.secondaryColor : Colors.white,
+                        color:
+                            isSelected ? _manager.secondaryColor : Colors.white,
                         border: Border.all(
-                          color: isSelected ? _manager.secondaryColor : Colors.grey.shade300,
+                          color: isSelected
+                              ? _manager.secondaryColor
+                              : Colors.grey.shade300,
                           width: 2,
                         ),
                         boxShadow: [
@@ -3273,7 +3313,9 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                       ),
                       child: Icon(
                         Icons.grid_view_rounded,
-                        color: isSelected ? _manager.primaryColor : Colors.blueGrey,
+                        color: isSelected
+                            ? _manager.primaryColor
+                            : Colors.blueGrey,
                         size: 24,
                       ),
                     ),
@@ -3282,8 +3324,11 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                       'الكل',
                       style: TextStyle(
                         fontSize: 11,
-                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                        color: isSelected ? _manager.primaryColor : Colors.blueGrey,
+                        fontWeight:
+                            isSelected ? FontWeight.bold : FontWeight.normal,
+                        color: isSelected
+                            ? _manager.primaryColor
+                            : Colors.blueGrey,
                       ),
                     ),
                   ],
@@ -3316,7 +3361,9 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                         end: Alignment.bottomRight,
                       ),
                       border: Border.all(
-                        color: isSelected ? _manager.secondaryColor : Colors.transparent,
+                        color: isSelected
+                            ? _manager.secondaryColor
+                            : Colors.transparent,
                         width: 2.5,
                       ),
                       boxShadow: [
@@ -3334,8 +3381,11 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                     cat.name,
                     style: TextStyle(
                       fontSize: 11,
-                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                      color: isSelected ? _manager.secondaryColor : _manager.titleTextColor,
+                      fontWeight:
+                          isSelected ? FontWeight.bold : FontWeight.normal,
+                      color: isSelected
+                          ? _manager.secondaryColor
+                          : _manager.titleTextColor,
                     ),
                   ),
                 ],
@@ -3347,7 +3397,6 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
     );
   }
 
-  /// ميزة 3: بطاقة الإعلان ثلاثية الأبعاد مع بطاقة السعر العائمة وشارة VIP
   Widget _buildCompactGridAdCard(AdItem ad) {
     final isFav = _favoriteAdIds.contains(ad.id);
 
@@ -3402,8 +3451,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                         loadingBuilder: (ctx, child, progress) {
                           if (progress == null) return child;
                           return const Center(
-                              child:
-                                  CircularProgressIndicator(strokeWidth: 1.5, color: Colors.amber));
+                              child: CircularProgressIndicator(
+                                  strokeWidth: 1.5, color: Colors.amber));
                         },
                         errorBuilder: (ctx, _, __) => Container(
                           color: const Color(0xFF1E293B),
@@ -3414,7 +3463,6 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                       ),
                     ),
                   ),
-                  // شارة VIP أو قيد المراجعة
                   if (ad.status == 'pending')
                     Positioned(
                       top: 6,
@@ -3441,10 +3489,15 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                             horizontal: 7, vertical: 2.5),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
-                            colors: [_manager.secondaryColor, Colors.amber.shade300],
+                            colors: [
+                              _manager.secondaryColor,
+                              Colors.amber.shade300
+                            ],
                           ),
                           borderRadius: BorderRadius.circular(6),
-                          boxShadow: const [BoxShadow(color: Colors.black26, blurRadius: 4)],
+                          boxShadow: const [
+                            BoxShadow(color: Colors.black26, blurRadius: 4)
+                          ],
                         ),
                         child: Text('VIP ★',
                             style: TextStyle(
@@ -3453,7 +3506,6 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                                 fontSize: 9)),
                       ),
                     ),
-                  // زر القلب للمفضلة
                   Positioned(
                     top: 6,
                     left: 6,
@@ -3468,18 +3520,20 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                           });
                         },
                         child: Icon(
-                            isFav ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+                            isFav
+                                ? Icons.favorite_rounded
+                                : Icons.favorite_border_rounded,
                             color: isFav ? Colors.redAccent : Colors.white,
                             size: 15),
                       ),
                     ),
                   ),
-                  // بطاقة السعر العائمة فوق الصورة (Floating Glass Price Tag)
                   Positioned(
                     bottom: 6,
                     right: 6,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 3),
                       decoration: BoxDecoration(
                         color: Colors.black.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(8),
@@ -3490,7 +3544,9 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                             ? '\$${ad.priceUsd!.toStringAsFixed(0)}'
                             : '${ad.priceSyp!.toStringAsFixed(0)} ل.س',
                         style: TextStyle(
-                          color: ad.priceUsd != null ? Colors.greenAccent : Colors.amberAccent,
+                          color: ad.priceUsd != null
+                              ? Colors.greenAccent
+                              : Colors.amberAccent,
                           fontWeight: FontWeight.bold,
                           fontSize: 11,
                         ),
@@ -3549,7 +3605,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                         ),
                         if (ad.isVerifiedSeller) ...[
                           const SizedBox(width: 3),
-                          const Icon(Icons.verified_rounded, size: 13, color: Colors.blueAccent),
+                          const Icon(Icons.verified_rounded,
+                              size: 13, color: Colors.blueAccent),
                         ],
                       ],
                     ),
@@ -3578,7 +3635,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(ad.condition,
-                                style: const TextStyle(fontSize: 9, color: Colors.grey)),
+                                style: const TextStyle(
+                                    fontSize: 9, color: Colors.grey)),
                             Row(
                               children: [
                                 const Icon(Icons.remove_red_eye_rounded,
@@ -3609,7 +3667,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.lock_outline_rounded, size: 60, color: Colors.grey.shade400),
+            Icon(Icons.lock_outline_rounded,
+                size: 60, color: Colors.grey.shade400),
             const SizedBox(height: 12),
             const Text('غرف المحادثة والتفاوض المباشر',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
@@ -3620,11 +3679,10 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: _manager.buttonColor,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (ctx) => const AuthScreen())),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12))),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (ctx) => const AuthScreen())),
               child: const Text('تسجيل الدخول الآن 🔑',
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold)),
@@ -3701,6 +3759,10 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
       },
     );
   }
+  // ==============================================================================
+// منصة سوق سوريا الشامل 2028 - الكود الصريح الكامل
+// [الدفعة الثالثة 3/3 - الشاشات التكميلية، التفاصيل، المحادثات، ودالة التشغيل]
+// ==============================================================================
 
   Widget _buildFavoritesTab() {
     final favAds =
@@ -3711,7 +3773,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.favorite_border_rounded, size: 60, color: Colors.grey.shade400),
+            Icon(Icons.favorite_border_rounded,
+                size: 60, color: Colors.grey.shade400),
             const SizedBox(height: 12),
             const Text('قائمة المفضلة فارغة حالياً',
                 style: TextStyle(
@@ -3792,7 +3855,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                                 fontSize: 16)),
                         if (_manager.isCurrentUserVerified) ...[
                           const SizedBox(width: 4),
-                          const Icon(Icons.verified_rounded, size: 16, color: Colors.blueAccent),
+                          const Icon(Icons.verified_rounded,
+                              size: 16, color: Colors.blueAccent),
                         ],
                       ],
                     ),
@@ -3828,7 +3892,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
           tileColor: _manager.secondaryColor.withOpacity(0.15),
-          leading: Icon(Icons.lightbulb_rounded, color: _manager.secondaryColor),
+          leading:
+              Icon(Icons.lightbulb_rounded, color: _manager.secondaryColor),
           title: const Text('صوتك مسموع 💡 - اقترح وطوّر التطبيق',
               style: TextStyle(fontWeight: FontWeight.bold)),
           subtitle: const Text('أرسل أفكارك وملاحظاتك مباشرةً لصاحب التطبيق'),
@@ -3847,8 +3912,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                 style: TextStyle(fontWeight: FontWeight.bold)),
             subtitle: const Text('تأكيد بالبريد أو رقم الهاتف'),
             trailing: const Icon(Icons.arrow_forward_ios, size: 14),
-            onTap: () => Navigator.push(
-                context, MaterialPageRoute(builder: (ctx) => const AuthScreen())),
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (ctx) => const AuthScreen())),
           )
         else
           ListTile(
@@ -3876,8 +3941,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
           tileColor: Colors.grey.withOpacity(0.06),
-          leading:
-              Icon(Icons.workspace_premium_rounded, color: _manager.secondaryColor),
+          leading: Icon(Icons.workspace_premium_rounded,
+              color: _manager.secondaryColor),
           title: const Text('ترقية الباقة والاشتراكات VIP'),
           subtitle: const Text('ميزات حصرية ونشر غير محدود'),
           trailing: const Icon(Icons.arrow_forward_ios, size: 14),
@@ -3892,14 +3957,17 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
             tileColor: Colors.red.withOpacity(0.08),
-            leading: const Icon(Icons.admin_panel_settings_rounded, color: Colors.red),
+            leading: const Icon(Icons.admin_panel_settings_rounded,
+                color: Colors.red),
             title: const Text('غرفة العمليات ولوحة تحكم المشرفين 🛡️',
                 style: TextStyle(fontWeight: FontWeight.bold)),
             subtitle: const Text(
                 'موافقة الإعلانات، المشرفين، البنرات، ألوان النصوص والاقتراحات'),
             trailing: const Icon(Icons.arrow_forward_ios, size: 14),
-            onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (ctx) => const FullAdminPanelScreen())),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (ctx) => const FullAdminPanelScreen())),
           ),
         ],
       ],
@@ -3965,13 +4033,14 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                   ),
                 ),
                 ListTile(
-                  leading: Icon(Icons.home_rounded, color: _manager.primaryColor),
+                  leading:
+                      Icon(Icons.home_rounded, color: _manager.primaryColor),
                   title: const Text('الرئيسية'),
                   onTap: () => Navigator.pop(context),
                 ),
                 ListTile(
-                  leading:
-                      Icon(Icons.headset_mic_rounded, color: _manager.secondaryColor),
+                  leading: Icon(Icons.headset_mic_rounded,
+                      color: _manager.secondaryColor),
                   title: const Text('تواصل مع الإدارة 💬',
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   onTap: () {
@@ -3980,8 +4049,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                   },
                 ),
                 ListTile(
-                  leading:
-                      Icon(Icons.lightbulb_rounded, color: _manager.secondaryColor),
+                  leading: Icon(Icons.lightbulb_rounded,
+                      color: _manager.secondaryColor),
                   title: const Text('صوتك مسموع 💡 (اقترح وطوّر)',
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   onTap: () {
@@ -4001,7 +4070,8 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (ctx) => const FullSubscriptionPlansScreen()));
+                            builder: (ctx) =>
+                                const FullSubscriptionPlansScreen()));
                   },
                 ),
                 if (_manager.isModerator)
@@ -4056,9 +4126,9 @@ class _MainDashboardScreenState extends State<MainDashboardScreen> {
     );
   }
 }
+
 // ==============================================================================
-// 9. شاشة تفاصيل الإعلان الفاخرة (FullAdDetailsScreen)
-// [الدفعة الثالثة 3/3 - التحديث البصري العصري]
+// شاشة تفاصيل الإعلان (FullAdDetailsScreen)
 // ==============================================================================
 class FullAdDetailsScreen extends StatefulWidget {
   final AdItem ad;
@@ -4129,7 +4199,8 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
   Future<void> _postComment() async {
     if (!_manager.isLoggedIn) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('⚠️ يرجى تسجيل الدخول أولاً لإضافة تعليق')),
+        const SnackBar(
+            content: Text('⚠️ يرجى تسجيل الدخول أولاً لإضافة تعليق')),
       );
       return;
     }
@@ -4151,7 +4222,9 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
     });
 
     try {
-      await Supabase.instance.client.from('comments').insert(newComment.toMap());
+      await Supabase.instance.client
+          .from('comments')
+          .insert(newComment.toMap());
     } catch (e) {
       debugPrint('Post comment error: $e');
     }
@@ -4164,14 +4237,13 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
     widget.onAdUpdated(updated);
 
     try {
-      await Supabase.instance.client
-          .from('ads')
-          .update({'created_at': now.toIso8601String()})
-          .eq('id', _currentAd.id);
+      await Supabase.instance.client.from('ads').update(
+          {'created_at': now.toIso8601String()}).eq('id', _currentAd.id);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('🚀 تم رفع إعلانك إلى قمة نتائج السوق بنجاح!')),
+          const SnackBar(
+              content: Text('🚀 تم رفع إعلانك إلى قمة نتائج السوق بنجاح!')),
         );
       }
     } catch (e) {
@@ -4208,32 +4280,43 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
 
   void _openGoogleMaps() async {
     if (_currentAd.latitude == null || _currentAd.longitude == null) {
-      final query = Uri.encodeComponent('${_currentAd.governorate}, ${_currentAd.neighborhood}, Syria');
-      final uri = Uri.parse('https://www.google.com/maps/search/?api=1&query=$query');
-      if (await canLaunchUrl(uri)) launchUrl(uri, mode: LaunchMode.externalApplication);
+      final query = Uri.encodeComponent(
+          '${_currentAd.governorate}, ${_currentAd.neighborhood}, Syria');
+      final uri =
+          Uri.parse('https://www.google.com/maps/search/?api=1&query=$query');
+      if (await canLaunchUrl(uri))
+        launchUrl(uri, mode: LaunchMode.externalApplication);
       return;
     }
-    final uri = Uri.parse('https://www.google.com/maps/search/?api=1&query=${_currentAd.latitude},${_currentAd.longitude}');
-    if (await canLaunchUrl(uri)) launchUrl(uri, mode: LaunchMode.externalApplication);
+    final uri = Uri.parse(
+        'https://www.google.com/maps/search/?api=1&query=${_currentAd.latitude},${_currentAd.longitude}');
+    if (await canLaunchUrl(uri))
+      launchUrl(uri, mode: LaunchMode.externalApplication);
   }
 
   @override
   Widget build(BuildContext context) {
-    final isOwner = _manager.currentUserId == _currentAd.userId || _manager.isModerator;
+    final isOwner =
+        _manager.currentUserId == _currentAd.userId || _manager.isModerator;
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: _manager.primaryColor,
         title: Text(_currentAd.title,
-            style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-            maxLines: 1, overflow: TextOverflow.ellipsis),
+            style: const TextStyle(
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
-            icon: Icon(widget.isFavorite ? Icons.favorite_rounded : Icons.favorite_border_rounded,
+            icon: Icon(
+                widget.isFavorite
+                    ? Icons.favorite_rounded
+                    : Icons.favorite_border_rounded,
                 color: widget.isFavorite ? Colors.redAccent : Colors.white),
             onPressed: widget.onToggleFavorite,
           ),
@@ -4242,9 +4325,11 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
             tooltip: 'مشاركة الإعلان',
             onPressed: () {
               Clipboard.setData(ClipboardData(
-                  text: 'شاهد "${_currentAd.title}" في سوق سوريا الشامل 2028: \nالسعر: ${_currentAd.priceUsd != null ? "\$${_currentAd.priceUsd}" : "${_currentAd.priceSyp} ل.س"}'));
+                  text:
+                      'شاهد "${_currentAd.title}" في سوق سوريا الشامل 2028: \nالسعر: ${_currentAd.priceUsd != null ? "\$${_currentAd.priceUsd}" : "${_currentAd.priceSyp} ل.س"}'));
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('تم نسخ تفاصيل ورابط الإعلان للمشاركة!')),
+                const SnackBar(
+                    content: Text('تم نسخ تفاصيل ورابط الإعلان للمشاركة!')),
               );
             },
           ),
@@ -4252,7 +4337,6 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
       ),
       body: ListView(
         children: [
-          // معرض صور الإعلان المطور مع إمكانية التكبير
           if (_currentAd.imageUrls.isNotEmpty)
             Stack(
               children: [
@@ -4260,7 +4344,8 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   height: 270,
                   child: PageView.builder(
                     itemCount: _currentAd.imageUrls.length,
-                    onPageChanged: (idx) => setState(() => _currentImageIndex = idx),
+                    onPageChanged: (idx) =>
+                        setState(() => _currentImageIndex = idx),
                     itemBuilder: (ctx, idx) {
                       return GestureDetector(
                         onTap: () {
@@ -4281,7 +4366,8 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                           errorBuilder: (c, _, __) => Container(
                             color: Colors.grey.shade900,
                             child: const Center(
-                                child: Icon(Icons.image_rounded, color: Colors.white54, size: 50)),
+                                child: Icon(Icons.image_rounded,
+                                    color: Colors.white54, size: 50)),
                           ),
                         ),
                       );
@@ -4292,7 +4378,8 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   bottom: 12,
                   right: 14,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                     decoration: BoxDecoration(
                         color: Colors.black.withOpacity(0.7),
                         borderRadius: BorderRadius.circular(12),
@@ -4309,7 +4396,8 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                       color: Colors.black.withOpacity(0.6),
                       child: Center(
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 18, vertical: 8),
                           decoration: BoxDecoration(
                             color: Colors.red.shade800,
                             borderRadius: BorderRadius.circular(10),
@@ -4326,60 +4414,65 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   ),
               ],
             ),
-
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // العنوان وشارة التوثيق
                 Row(
                   children: [
                     Expanded(
                       child: Text(
                         _currentAd.title,
-                        style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 19, fontWeight: FontWeight.bold),
                       ),
                     ),
                     if (_currentAd.isVerifiedSeller) ...[
                       const SizedBox(width: 4),
                       const Tooltip(
                         message: 'بائع معتمد وموثق الهوية',
-                        child: Icon(Icons.verified_rounded, color: Colors.blueAccent, size: 22),
+                        child: Icon(Icons.verified_rounded,
+                            color: Colors.blueAccent, size: 22),
                       ),
                     ],
                   ],
                 ),
                 const SizedBox(height: 10),
-
-                // بطاقات الأسعار العصرية
                 Row(
                   children: [
                     if (_currentAd.priceUsd != null)
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                           color: Colors.green.withOpacity(0.12),
                           borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.green.withOpacity(0.3)),
+                          border:
+                              Border.all(color: Colors.green.withOpacity(0.3)),
                         ),
-                        child: Text('\$${_currentAd.priceUsd!.toStringAsFixed(0)} دولار',
+                        child: Text(
+                            '\$${_currentAd.priceUsd!.toStringAsFixed(0)} دولار',
                             style: TextStyle(
                                 color: _manager.priceUsdColor,
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold)),
                       ),
-                    if (_currentAd.priceUsd != null && _currentAd.priceSyp != null)
+                    if (_currentAd.priceUsd != null &&
+                        _currentAd.priceSyp != null)
                       const SizedBox(width: 8),
                     if (_currentAd.priceSyp != null)
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                           color: Colors.amber.withOpacity(0.12),
                           borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.amber.withOpacity(0.3)),
+                          border:
+                              Border.all(color: Colors.amber.withOpacity(0.3)),
                         ),
-                        child: Text('${_currentAd.priceSyp!.toStringAsFixed(0)} ليرة سورية',
+                        child: Text(
+                            '${_currentAd.priceSyp!.toStringAsFixed(0)} ليرة سورية',
                             style: TextStyle(
                                 color: _manager.priceSypColor,
                                 fontSize: 15,
@@ -4388,8 +4481,6 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   ],
                 ),
                 const SizedBox(height: 14),
-
-                // الموقع والتصنيف والخرائط
                 Wrap(
                   spacing: 8,
                   runSpacing: 8,
@@ -4397,9 +4488,12 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                     InkWell(
                       onTap: _openGoogleMaps,
                       child: Chip(
-                        avatar: const Icon(Icons.location_on_rounded, size: 16, color: Colors.redAccent),
-                        label: Text('${_currentAd.governorate} - ${_currentAd.neighborhood} (خرائط 🗺️)',
-                            style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
+                        avatar: const Icon(Icons.location_on_rounded,
+                            size: 16, color: Colors.redAccent),
+                        label: Text(
+                            '${_currentAd.governorate} - ${_currentAd.neighborhood} (خرائط 🗺️)',
+                            style: const TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.bold)),
                         backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -4407,8 +4501,10 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                       ),
                     ),
                     Chip(
-                      avatar: const Icon(Icons.category_rounded, size: 16, color: Colors.blueAccent),
-                      label: Text('${_currentAd.categoryId} > ${_currentAd.subcategory}',
+                      avatar: const Icon(Icons.category_rounded,
+                          size: 16, color: Colors.blueAccent),
+                      label: Text(
+                          '${_currentAd.categoryId} > ${_currentAd.subcategory}',
                           style: const TextStyle(fontSize: 11)),
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
@@ -4416,8 +4512,10 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                           side: BorderSide(color: Colors.grey.shade300)),
                     ),
                     Chip(
-                      avatar: const Icon(Icons.check_circle_rounded, size: 16, color: Colors.green),
-                      label: Text(_currentAd.condition, style: const TextStyle(fontSize: 11)),
+                      avatar: const Icon(Icons.check_circle_rounded,
+                          size: 16, color: Colors.green),
+                      label: Text(_currentAd.condition,
+                          style: const TextStyle(fontSize: 11)),
                       backgroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -4426,8 +4524,6 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   ],
                 ),
                 const Divider(height: 28),
-
-                // بطاقة البائع والمتجر الفاخرة
                 InkWell(
                   onTap: () {
                     Navigator.push(
@@ -4463,8 +4559,12 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                           radius: 22,
                           backgroundColor: _manager.primaryColor,
                           child: Text(
-                            _currentAd.publisherName.isNotEmpty ? _currentAd.publisherName[0] : 'S',
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                            _currentAd.publisherName.isNotEmpty
+                                ? _currentAd.publisherName[0]
+                                : 'S',
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         const SizedBox(width: 12),
@@ -4476,24 +4576,29 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                                 children: [
                                   Text(_currentAd.publisherName,
                                       style: const TextStyle(
-                                          fontWeight: FontWeight.bold, fontSize: 14)),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14)),
                                   if (_currentAd.isVerifiedSeller) ...[
                                     const SizedBox(width: 4),
-                                    const Icon(Icons.verified_rounded, size: 15, color: Colors.blueAccent),
+                                    const Icon(Icons.verified_rounded,
+                                        size: 15, color: Colors.blueAccent),
                                   ],
                                 ],
                               ),
                               const SizedBox(height: 2),
                               const Text('زيارة معرض ومتجر المعلن 🏬 >',
-                                  style: TextStyle(color: Colors.blueGrey, fontSize: 11)),
+                                  style: TextStyle(
+                                      color: Colors.blueGrey, fontSize: 11)),
                             ],
                           ),
                         ),
                         Row(
                           children: [
-                            const Icon(Icons.star_rounded, color: Colors.amber, size: 18),
+                            const Icon(Icons.star_rounded,
+                                color: Colors.amber, size: 18),
                             Text(' ${_currentAd.sellerRating}',
-                                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                                style: const TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.bold)),
                           ],
                         ),
                       ],
@@ -4501,10 +4606,9 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   ),
                 ),
                 const SizedBox(height: 18),
-
-                // المواصفات والشرح
                 const Text('التفاصيل والمواصفات:',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
                 const SizedBox(height: 8),
                 Container(
                   width: double.infinity,
@@ -4520,8 +4624,6 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   ),
                 ),
                 const SizedBox(height: 18),
-
-                // إظهار رقم الهاتف عند النقر
                 Container(
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
@@ -4534,14 +4636,18 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.phone_iphone_rounded, color: Colors.blue),
+                          const Icon(Icons.phone_iphone_rounded,
+                              color: Colors.blue),
                           const SizedBox(width: 8),
                           Text(
                             _isRevealedPhone
                                 ? _currentAd.publisherPhone
-                                : PhoneHelper.maskPhone(_currentAd.publisherPhone),
+                                : PhoneHelper.maskPhone(
+                                    _currentAd.publisherPhone),
                             style: const TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15, letterSpacing: 1),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                letterSpacing: 1),
                           ),
                         ],
                       ),
@@ -4549,18 +4655,20 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6)),
-                          onPressed: () => setState(() => _isRevealedPhone = true),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 6)),
+                          onPressed: () =>
+                              setState(() => _isRevealedPhone = true),
                           child: const Text('إظهار الرقم 👁️',
-                              style: TextStyle(color: Colors.white, fontSize: 12)),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12)),
                         ),
                     ],
                   ),
                 ),
                 const SizedBox(height: 18),
-
-                // أدوات صاحب الإعلان
                 if (isOwner) ...[
                   Container(
                     padding: const EdgeInsets.all(14),
@@ -4573,7 +4681,8 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text('أدوات إدارة إعلانك ⚙️',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 13)),
                         const SizedBox(height: 10),
                         Row(
                           children: [
@@ -4581,11 +4690,14 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                               child: ElevatedButton.icon(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: _manager.primaryColor,
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
                                 ),
-                                icon: const Icon(Icons.rocket_launch_rounded, color: Colors.white, size: 15),
+                                icon: const Icon(Icons.rocket_launch_rounded,
+                                    color: Colors.white, size: 15),
                                 label: const Text('رفع للقمة 🚀',
-                                    style: TextStyle(color: Colors.white, fontSize: 11)),
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 11)),
                                 onPressed: _bumpUpAd,
                               ),
                             ),
@@ -4593,13 +4705,24 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                             Expanded(
                               child: ElevatedButton.icon(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: _currentAd.isSold ? Colors.green : Colors.red,
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor: _currentAd.isSold
+                                      ? Colors.green
+                                      : Colors.red,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
                                 ),
-                                icon: Icon(_currentAd.isSold ? Icons.replay_rounded : Icons.check_rounded,
-                                    color: Colors.white, size: 15),
-                                label: Text(_currentAd.isSold ? 'إلغاء البيع' : 'تحديد كمباع ✓',
-                                    style: const TextStyle(color: Colors.white, fontSize: 11)),
+                                icon: Icon(
+                                    _currentAd.isSold
+                                        ? Icons.replay_rounded
+                                        : Icons.check_rounded,
+                                    color: Colors.white,
+                                    size: 15),
+                                label: Text(
+                                    _currentAd.isSold
+                                        ? 'إلغاء البيع'
+                                        : 'تحديد كمباع ✓',
+                                    style: const TextStyle(
+                                        color: Colors.white, fontSize: 11)),
                                 onPressed: _toggleSoldStatus,
                               ),
                             ),
@@ -4610,11 +4733,10 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                   ),
                   const SizedBox(height: 18),
                 ],
-
-                // التعليقات
                 if (_currentAd.allowComments) ...[
                   const Text('الأسئلة والتعليقات العامة:',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                   const SizedBox(height: 8),
                   if (_isLoadingComments)
                     const Center(child: CircularProgressIndicator())
@@ -4634,9 +4756,12 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(c.userName,
-                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12)),
                               const SizedBox(height: 2),
-                              Text(c.content, style: const TextStyle(fontSize: 12)),
+                              Text(c.content,
+                                  style: const TextStyle(fontSize: 12)),
                             ],
                           ),
                         )),
@@ -4651,10 +4776,12 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                             hintStyle: const TextStyle(fontSize: 12),
                             filled: true,
                             fillColor: Colors.white,
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 14, vertical: 10),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
-                              borderSide: BorderSide(color: Colors.grey.shade300),
+                              borderSide:
+                                  BorderSide(color: Colors.grey.shade300),
                             ),
                           ),
                         ),
@@ -4663,8 +4790,10 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                       IconButton(
                         style: IconButton.styleFrom(
                             backgroundColor: _manager.primaryColor,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-                        icon: const Icon(Icons.send_rounded, color: Colors.white, size: 18),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12))),
+                        icon: const Icon(Icons.send_rounded,
+                            color: Colors.white, size: 18),
                         onPressed: _postComment,
                       ),
                     ],
@@ -4679,7 +4808,12 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.06), blurRadius: 6, offset: const Offset(0, -3))],
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black.withOpacity(0.06),
+                blurRadius: 6,
+                offset: const Offset(0, -3))
+          ],
         ),
         child: Row(
           children: [
@@ -4688,17 +4822,23 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF25D366),
                   padding: const EdgeInsets.symmetric(vertical: 13),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                 ),
                 icon: const Icon(Icons.chat_rounded, color: Colors.white),
                 label: const Text('واتساب',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15)),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15)),
                 onPressed: () async {
-                  final clean = PhoneHelper.formatForWhatsapp(_currentAd.publisherWhatsapp);
+                  final clean = PhoneHelper.formatForWhatsapp(
+                      _currentAd.publisherWhatsapp);
                   final msg = Uri.encodeComponent(
                       'مرحباً، بخصوص إعلانك "${_currentAd.title}" المعروض في سوق سوريا الشامل 2028:');
                   final uri = Uri.parse('https://wa.me/$clean?text=$msg');
-                  if (await canLaunchUrl(uri)) launchUrl(uri, mode: LaunchMode.externalApplication);
+                  if (await canLaunchUrl(uri))
+                    launchUrl(uri, mode: LaunchMode.externalApplication);
                 },
               ),
             ),
@@ -4708,15 +4848,21 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _manager.buttonColor,
                   padding: const EdgeInsets.symmetric(vertical: 13),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
                 ),
                 icon: const Icon(Icons.handshake_rounded, color: Colors.white),
                 label: const Text('تفاوض مباشر 💬',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15)),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15)),
                 onPressed: () {
                   if (!_manager.isLoggedIn) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('⚠️ يرجى تسجيل الدخول أولاً لبدء المحادثة والتفاوض')),
+                      const SnackBar(
+                          content: Text(
+                              '⚠️ يرجى تسجيل الدخول أولاً لبدء المحادثة والتفاوض')),
                     );
                     return;
                   }
@@ -4727,7 +4873,8 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
                         adId: _currentAd.id,
                         partnerName: _currentAd.publisherName,
                         productTitle: _currentAd.title,
-                        initialPrice: _currentAd.priceUsd ?? _currentAd.priceSyp ?? 0,
+                        initialPrice:
+                            _currentAd.priceUsd ?? _currentAd.priceSyp ?? 0,
                       ),
                     ),
                   );
@@ -4742,7 +4889,7 @@ class _FullAdDetailsScreenState extends State<FullAdDetailsScreen> {
 }
 
 // ==============================================================================
-// 10. شاشة الشات والتفاوض المباشر (FullChatNegotiationScreen)
+// شاشة الشات والتفاوض المباشر (FullChatNegotiationScreen)
 // ==============================================================================
 class FullChatNegotiationScreen extends StatefulWidget {
   final String adId;
@@ -4759,7 +4906,8 @@ class FullChatNegotiationScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<FullChatNegotiationScreen> createState() => _FullChatNegotiationScreenState();
+  State<FullChatNegotiationScreen> createState() =>
+      _FullChatNegotiationScreenState();
 }
 
 class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
@@ -4833,7 +4981,10 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
     });
   }
 
-  Future<void> _sendMessage({String type = 'text', String? attachmentUrl, String? textContent}) async {
+  Future<void> _sendMessage(
+      {String type = 'text',
+      String? attachmentUrl,
+      String? textContent}) async {
     final msg = textContent ?? _msgController.text.trim();
     if (msg.isEmpty && attachmentUrl == null) return;
 
@@ -4855,14 +5006,17 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
     _scrollToBottom();
 
     try {
-      await Supabase.instance.client.from('chat_messages').insert(newMsg.toMap());
+      await Supabase.instance.client
+          .from('chat_messages')
+          .insert(newMsg.toMap());
     } catch (e) {
       debugPrint('Error sending message: $e');
     }
   }
 
   Future<void> _sendImageAttachment() async {
-    final img = await _picker.pickImage(source: ImageSource.gallery, imageQuality: 75);
+    final img =
+        await _picker.pickImage(source: ImageSource.gallery, imageQuality: 75);
     if (img == null) return;
 
     setState(() => _isUploadingAttachment = true);
@@ -4871,10 +5025,16 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
       final fileName = 'chat_${DateTime.now().millisecondsSinceEpoch}.jpg';
       await Supabase.instance.client.storage
           .from(kStorageBucketChat)
-          .uploadBinary(fileName, bytes, fileOptions: const FileOptions(contentType: 'image/jpeg'));
+          .uploadBinary(fileName, bytes,
+              fileOptions: const FileOptions(contentType: 'image/jpeg'));
 
-      final publicUrl = Supabase.instance.client.storage.from(kStorageBucketChat).getPublicUrl(fileName);
-      await _sendMessage(type: 'image', attachmentUrl: publicUrl, textContent: '📷 صورة مرفقة');
+      final publicUrl = Supabase.instance.client.storage
+          .from(kStorageBucketChat)
+          .getPublicUrl(fileName);
+      await _sendMessage(
+          type: 'image',
+          attachmentUrl: publicUrl,
+          textContent: '📷 صورة مرفقة');
     } catch (e) {
       debugPrint('Upload image error: $e');
     } finally {
@@ -4904,17 +5064,20 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: 'السعر المقترح (\$ أو ل.س)',
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
               ),
             ),
           ],
         ),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('إلغاء')),
+          TextButton(
+              onPressed: () => Navigator.pop(ctx), child: const Text('إلغاء')),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
             ),
             onPressed: () {
               final val = _offerPriceController.text.trim();
@@ -4926,7 +5089,9 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
                 );
               }
             },
-            child: const Text('إرسال العرض', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            child: const Text('إرسال العرض',
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold)),
           ),
         ],
       ),
@@ -4942,10 +5107,14 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(widget.partnerName,
-                style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold)),
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold)),
             Text(widget.productTitle,
                 style: TextStyle(color: _manager.secondaryColor, fontSize: 11),
-                maxLines: 1, overflow: TextOverflow.ellipsis),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis),
           ],
         ),
         leading: IconButton(
@@ -4954,9 +5123,11 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
         ),
         actions: [
           TextButton.icon(
-            style: TextButton.styleFrom(foregroundColor: _manager.secondaryColor),
+            style:
+                TextButton.styleFrom(foregroundColor: _manager.secondaryColor),
             icon: const Icon(Icons.local_offer_rounded, size: 16),
-            label: const Text('عرض سعر 💰', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
+            label: const Text('عرض سعر 💰',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
             onPressed: _showOfferDialog,
           ),
         ],
@@ -4973,18 +5144,23 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
                 final isMe = m.senderId == _manager.currentUserId;
 
                 return Align(
-                  alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
+                  alignment:
+                      isMe ? Alignment.centerRight : Alignment.centerLeft,
                   child: Container(
                     margin: const EdgeInsets.symmetric(vertical: 4),
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                    constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.78),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 14, vertical: 10),
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.78),
                     decoration: BoxDecoration(
                       color: isMe ? _manager.primaryColor : Colors.white,
                       borderRadius: BorderRadius.only(
                         topLeft: const Radius.circular(16),
                         topRight: const Radius.circular(16),
-                        bottomLeft: isMe ? const Radius.circular(16) : Radius.zero,
-                        bottomRight: isMe ? Radius.zero : const Radius.circular(16),
+                        bottomLeft:
+                            isMe ? const Radius.circular(16) : Radius.zero,
+                        bottomRight:
+                            isMe ? Radius.zero : const Radius.circular(16),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -4995,7 +5171,9 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
                       ],
                     ),
                     child: Column(
-                      crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                      crossAxisAlignment: isMe
+                          ? CrossAxisAlignment.end
+                          : CrossAxisAlignment.start,
                       children: [
                         if (m.type == 'image' && m.attachmentUrl != null)
                           GestureDetector(
@@ -5011,7 +5189,8 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
                             },
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: Image.network(m.attachmentUrl!, height: 160, fit: BoxFit.cover),
+                              child: Image.network(m.attachmentUrl!,
+                                  height: 160, fit: BoxFit.cover),
                             ),
                           )
                         else if (m.type == 'offer')
@@ -5023,13 +5202,16 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
                             ),
                             child: Text(m.message,
                                 style: const TextStyle(
-                                    color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12)),
                           )
                         else
                           Text(
                             m.message,
                             style: TextStyle(
-                                color: isMe ? Colors.white : Colors.black87, fontSize: 13),
+                                color: isMe ? Colors.white : Colors.black87,
+                                fontSize: 13),
                           ),
                       ],
                     ),
@@ -5038,18 +5220,23 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
               },
             ),
           ),
-          if (_isUploadingAttachment)
-            const LinearProgressIndicator(),
+          if (_isUploadingAttachment) const LinearProgressIndicator(),
           Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Colors.white,
-              boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.06), blurRadius: 6, offset: const Offset(0, -2))],
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.06),
+                    blurRadius: 6,
+                    offset: const Offset(0, -2))
+              ],
             ),
             child: Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.add_photo_alternate_rounded, color: Colors.blueAccent),
+                  icon: const Icon(Icons.add_photo_alternate_rounded,
+                      color: Colors.blueAccent),
                   onPressed: _sendImageAttachment,
                 ),
                 Expanded(
@@ -5063,7 +5250,8 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
                         borderRadius: BorderRadius.circular(24),
                         borderSide: BorderSide(color: Colors.grey.shade300),
                       ),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 10),
                     ),
                     onSubmitted: (_) => _sendMessage(),
                   ),
@@ -5071,8 +5259,10 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
                 const SizedBox(width: 8),
                 IconButton(
                   style: IconButton.styleFrom(
-                      backgroundColor: _manager.buttonColor, shape: const CircleBorder()),
-                  icon: const Icon(Icons.send_rounded, color: Colors.white, size: 18),
+                      backgroundColor: _manager.buttonColor,
+                      shape: const CircleBorder()),
+                  icon: const Icon(Icons.send_rounded,
+                      color: Colors.white, size: 18),
                   onPressed: () => _sendMessage(),
                 ),
               ],
@@ -5085,11 +5275,12 @@ class _FullChatNegotiationScreenState extends State<FullChatNegotiationScreen> {
 }
 
 // ==============================================================================
-// 11. شاشة إضافة الإعلانات المطورة (FullAddAdScreen)
+// شاشة نشر الإعلانات (FullAddAdScreen)
 // ==============================================================================
 class FullAddAdScreen extends StatefulWidget {
   final Function(AdItem) onAdCreated;
-  const FullAddAdScreen({Key? key, required this.onAdCreated}) : super(key: key);
+  const FullAddAdScreen({Key? key, required this.onAdCreated})
+      : super(key: key);
 
   @override
   State<FullAddAdScreen> createState() => _FullAddAdScreenState();
@@ -5140,12 +5331,15 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
     final plan = _manager.getCurrentUserPlan();
     if (_pickedImagesBytes.length >= plan.maxImagesPerAd) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('حد خطتك الحالي هو ${plan.maxImagesPerAd} صور. قم بالترقية لزيادة العدد!')),
+        SnackBar(
+            content: Text(
+                'حد خطتك الحالي هو ${plan.maxImagesPerAd} صور. قم بالترقية لزيادة العدد!')),
       );
       return;
     }
 
-    final img = await _picker.pickImage(source: ImageSource.gallery, imageQuality: 75);
+    final img =
+        await _picker.pickImage(source: ImageSource.gallery, imageQuality: 75);
     if (img != null) {
       final bytes = await img.readAsBytes();
       setState(() => _pickedImagesBytes.add(bytes));
@@ -5164,7 +5358,9 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
             .from(kStorageBucketAds)
             .uploadBinary(fileName, _pickedImagesBytes[i],
                 fileOptions: const FileOptions(contentType: 'image/jpeg'));
-        final url = Supabase.instance.client.storage.from(kStorageBucketAds).getPublicUrl(fileName);
+        final url = Supabase.instance.client.storage
+            .from(kStorageBucketAds)
+            .getPublicUrl(fileName);
         uploadedUrls.add(url);
       }
 
@@ -5212,7 +5408,10 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
       appBar: AppBar(
         backgroundColor: _manager.primaryColor,
         title: const Text('نشر إعلان جديد في السوق',
-            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
@@ -5229,9 +5428,11 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                 labelText: 'عنوان الإعلان *',
                 filled: true,
                 fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
               ),
-              validator: (v) => (v == null || v.isEmpty) ? 'يرجى إدخال العنوان' : null,
+              validator: (v) =>
+                  (v == null || v.isEmpty) ? 'يرجى إدخال العنوان' : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -5241,9 +5442,11 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                 labelText: 'شرح ومواصفات السلعة *',
                 filled: true,
                 fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
               ),
-              validator: (v) => (v == null || v.isEmpty) ? 'يرجى إدخال الوصف' : null,
+              validator: (v) =>
+                  (v == null || v.isEmpty) ? 'يرجى إدخال الوصف' : null,
             ),
             const SizedBox(height: 12),
             Row(
@@ -5256,7 +5459,8 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                       labelText: 'السعر (\$ دولار)',
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14)),
                     ),
                   ),
                 ),
@@ -5269,7 +5473,8 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                       labelText: 'السعر (ل.س سوري)',
                       filled: true,
                       fillColor: Colors.white,
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(14)),
                     ),
                   ),
                 ),
@@ -5282,9 +5487,12 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                 labelText: 'المنطقة / الحي *',
                 filled: true,
                 fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
               ),
-              validator: (v) => (v == null || v.isEmpty) ? 'يرجى إدخال اسم المنطقة أو الحي' : null,
+              validator: (v) => (v == null || v.isEmpty)
+                  ? 'يرجى إدخال اسم المنطقة أو الحي'
+                  : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -5293,9 +5501,11 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                 labelText: 'رقم الهاتف للتواصل *',
                 filled: true,
                 fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
               ),
-              validator: (v) => (v == null || v.isEmpty) ? 'يرجى إدخال رقم الهاتف' : null,
+              validator: (v) =>
+                  (v == null || v.isEmpty) ? 'يرجى إدخال رقم الهاتف' : null,
             ),
             const SizedBox(height: 12),
             TextFormField(
@@ -5304,19 +5514,23 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                 labelText: 'رقم الواتساب *',
                 filled: true,
                 fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
               ),
-              validator: (v) => (v == null || v.isEmpty) ? 'يرجى إدخال رقم الواتساب' : null,
+              validator: (v) =>
+                  (v == null || v.isEmpty) ? 'يرجى إدخال رقم الواتساب' : null,
             ),
             const SizedBox(height: 16),
-            const Text('صور الإعلان:', style: TextStyle(fontWeight: FontWeight.bold)),
+            const Text('صور الإعلان:',
+                style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
               children: [
                 ..._pickedImagesBytes.map((b) => ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.memory(b, width: 72, height: 72, fit: BoxFit.cover),
+                      child: Image.memory(b,
+                          width: 72, height: 72, fit: BoxFit.cover),
                     )),
                 InkWell(
                   onTap: _pickImage,
@@ -5328,7 +5542,8 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Colors.grey.shade300),
                     ),
-                    child: const Icon(Icons.add_a_photo_rounded, color: Colors.blueGrey),
+                    child: const Icon(Icons.add_a_photo_rounded,
+                        color: Colors.blueGrey),
                   ),
                 ),
               ],
@@ -5339,13 +5554,17 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _manager.buttonColor,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14)),
                 ),
                 onPressed: _isSubmitting ? null : _submitAd,
                 child: _isSubmitting
                     ? const CircularProgressIndicator(color: Colors.white)
                     : const Text('نشر الإعلان الآن 🚀',
-                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold)),
               ),
             ),
           ],
@@ -5356,7 +5575,7 @@ class _FullAddAdScreenState extends State<FullAddAdScreen> {
 }
 
 // ==============================================================================
-// 12. خطط الاشتراك، لوحة المشرفين، والمصادقة (Admin & Auth Screens)
+// خطط الاشتراك، لوحة المشرفين، والمصادقة (Admin & Auth Screens)
 // ==============================================================================
 class FullSubscriptionPlansScreen extends StatelessWidget {
   const FullSubscriptionPlansScreen({Key? key}) : super(key: key);
@@ -5369,7 +5588,10 @@ class FullSubscriptionPlansScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: manager.primaryColor,
         title: const Text('خطط وترقية الاشتراكات VIP 👑',
-            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
@@ -5383,7 +5605,9 @@ class FullSubscriptionPlansScreen extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(18),
-              side: isCurrent ? BorderSide(color: manager.secondaryColor, width: 2) : BorderSide.none,
+              side: isCurrent
+                  ? BorderSide(color: manager.secondaryColor, width: 2)
+                  : BorderSide.none,
             ),
             child: Padding(
               padding: const EdgeInsets.all(18),
@@ -5393,15 +5617,24 @@ class FullSubscriptionPlansScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(plan.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                      Text(plan.name,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16)),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
                           color: plan.badgeColor,
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: Text(plan.priceUsd == 0 ? 'مجاناً' : '\$${plan.priceUsd} / شهرياً',
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12)),
+                        child: Text(
+                            plan.priceUsd == 0
+                                ? 'مجاناً'
+                                : '\$${plan.priceUsd} / شهرياً',
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12)),
                       ),
                     ],
                   ),
@@ -5410,8 +5643,13 @@ class FullSubscriptionPlansScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 4),
                         child: Row(
                           children: [
-                            Icon(f.isAvailable ? Icons.check_circle_rounded : Icons.cancel_rounded,
-                                size: 17, color: f.isAvailable ? Colors.green : Colors.red),
+                            Icon(
+                                f.isAvailable
+                                    ? Icons.check_circle_rounded
+                                    : Icons.cancel_rounded,
+                                size: 17,
+                                color:
+                                    f.isAvailable ? Colors.green : Colors.red),
                             const SizedBox(width: 8),
                             Text(f.text, style: const TextStyle(fontSize: 12)),
                           ],
@@ -5422,12 +5660,16 @@ class FullSubscriptionPlansScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: isCurrent ? Colors.grey : manager.buttonColor,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        backgroundColor:
+                            isCurrent ? Colors.grey : manager.buttonColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12)),
                       ),
                       onPressed: isCurrent ? null : () {},
                       child: Text(isCurrent ? 'باقتك الحالية' : 'ترقية الآن ✨',
-                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ],
@@ -5455,7 +5697,10 @@ class FullAdminPanelScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: manager.primaryColor,
           title: const Text('غرفة العمليات والإشراف 🛡️',
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold)),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
             onPressed: () => Navigator.pop(context),
@@ -5472,51 +5717,74 @@ class FullAdminPanelScreen extends StatelessWidget {
           children: [
             ListView(
               padding: const EdgeInsets.all(16),
-              children: manager.moderators.map((m) => ListTile(
-                    leading: const Icon(Icons.admin_panel_settings_rounded, color: Colors.amber),
-                    title: Text(m.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Text(m.email),
-                    trailing: Text(m.role),
-                  )).toList(),
+              children: manager.moderators
+                  .map((m) => ListTile(
+                        leading: const Icon(Icons.admin_panel_settings_rounded,
+                            color: Colors.amber),
+                        title: Text(m.name,
+                            style:
+                                const TextStyle(fontWeight: FontWeight.bold)),
+                        subtitle: Text(m.email),
+                        trailing: Text(m.role),
+                      ))
+                  .toList(),
             ),
             ListView(
               padding: const EdgeInsets.all(16),
-              children: manager.ads.where((a) => a.status == 'pending').map((ad) => Card(
-                    child: ListTile(
-                      title: Text(ad.title, style: const TextStyle(fontWeight: FontWeight.bold)),
-                      subtitle: Text('${ad.governorate} - ${ad.priceUsd ?? ad.priceSyp}'),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.check_rounded, color: Colors.green),
-                            onPressed: () async {
-                              await Supabase.instance.client.from('ads').update({'status': 'approved'}).eq('id', ad.id);
-                              manager.notifyListeners();
-                            },
+              children: manager.ads
+                  .where((a) => a.status == 'pending')
+                  .map((ad) => Card(
+                        child: ListTile(
+                          title: Text(ad.title,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
+                          subtitle: Text(
+                              '${ad.governorate} - ${ad.priceUsd ?? ad.priceSyp}'),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.check_rounded,
+                                    color: Colors.green),
+                                onPressed: () async {
+                                  await Supabase.instance.client
+                                      .from('ads')
+                                      .update({'status': 'approved'}).eq(
+                                          'id', ad.id);
+                                  manager.notifyListeners();
+                                },
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.close_rounded,
+                                    color: Colors.red),
+                                onPressed: () async {
+                                  await Supabase.instance.client
+                                      .from('ads')
+                                      .delete()
+                                      .eq('id', ad.id);
+                                  manager.ads.removeWhere((x) => x.id == ad.id);
+                                  manager.notifyListeners();
+                                },
+                              ),
+                            ],
                           ),
-                          IconButton(
-                            icon: const Icon(Icons.close_rounded, color: Colors.red),
-                            onPressed: () async {
-                              await Supabase.instance.client.from('ads').delete().eq('id', ad.id);
-                              manager.ads.removeWhere((x) => x.id == ad.id);
-                              manager.notifyListeners();
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  )).toList(),
+                        ),
+                      ))
+                  .toList(),
             ),
             ListView(
               padding: const EdgeInsets.all(16),
-              children: manager.feedbacks.map((f) => Card(
-                    child: ListTile(
-                      title: Text(f.type, style: const TextStyle(fontWeight: FontWeight.bold)),
-                      subtitle: Text(f.content),
-                      trailing: Text(f.userContact),
-                    ),
-                  )).toList(),
+              children: manager.feedbacks
+                  .map((f) => Card(
+                        child: ListTile(
+                          title: Text(f.type,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold)),
+                          subtitle: Text(f.content),
+                          trailing: Text(f.userContact),
+                        ),
+                      ))
+                  .toList(),
             ),
           ],
         ),
@@ -5550,17 +5818,21 @@ class _AuthScreenState extends State<AuthScreen> {
 
     try {
       if (_isSignUp) {
-        final res = await Supabase.instance.client.auth.signUp(email: email, password: password);
+        final res = await Supabase.instance.client.auth
+            .signUp(email: email, password: password);
         if (res.user != null) {
           manager.setSessionUser(
             userId: res.user!.id,
             email: email,
-            name: _nameController.text.trim().isNotEmpty ? _nameController.text.trim() : 'مستخدم جديد',
+            name: _nameController.text.trim().isNotEmpty
+                ? _nameController.text.trim()
+                : 'مستخدم جديد',
             phone: _phoneController.text.trim(),
           );
         }
       } else {
-        final res = await Supabase.instance.client.auth.signInWithPassword(email: email, password: password);
+        final res = await Supabase.instance.client.auth
+            .signInWithPassword(email: email, password: password);
         if (res.user != null) {
           manager.setSessionUser(
             userId: res.user!.id,
@@ -5592,7 +5864,10 @@ class _AuthScreenState extends State<AuthScreen> {
       appBar: AppBar(
         backgroundColor: manager.primaryColor,
         title: Text(_isSignUp ? 'إنشاء حساب جديد' : 'تسجيل الدخول',
-            style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+            style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
           onPressed: () => Navigator.pop(context),
@@ -5602,33 +5877,60 @@ class _AuthScreenState extends State<AuthScreen> {
         padding: const EdgeInsets.all(20),
         children: [
           if (_isSignUp) ...[
-            TextField(controller: _nameController, decoration: InputDecoration(labelText: 'الاسم الكامل', border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)))),
+            TextField(
+                controller: _nameController,
+                decoration: InputDecoration(
+                    labelText: 'الاسم الكامل',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14)))),
             const SizedBox(height: 12),
-            TextField(controller: _phoneController, decoration: InputDecoration(labelText: 'رقم الهاتف', border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)))),
+            TextField(
+                controller: _phoneController,
+                decoration: InputDecoration(
+                    labelText: 'رقم الهاتف',
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14)))),
             const SizedBox(height: 12),
           ],
-          TextField(controller: _emailController, decoration: InputDecoration(labelText: 'البريد الإلكتروني', border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)))),
+          TextField(
+              controller: _emailController,
+              decoration: InputDecoration(
+                  labelText: 'البريد الإلكتروني',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14)))),
           const SizedBox(height: 12),
-          TextField(controller: _passwordController, obscureText: true, decoration: InputDecoration(labelText: 'كلمة المرور', border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)))),
+          TextField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                  labelText: 'كلمة المرور',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(14)))),
           const SizedBox(height: 20),
           SizedBox(
             height: 50,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: manager.buttonColor,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14)),
               ),
               onPressed: _isLoading ? null : _handleAuth,
               child: _isLoading
                   ? const CircularProgressIndicator(color: Colors.white)
                   : Text(_isSignUp ? 'تسجيل حساب جديد ✨' : 'دخول 🔑',
-                      style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold)),
             ),
           ),
           const SizedBox(height: 12),
           TextButton(
             onPressed: () => setState(() => _isSignUp = !_isSignUp),
-            child: Text(_isSignUp ? 'لديك حساب بالفعل؟ سجل دخولك' : 'ليس لديك حساب؟ اضغط لإنشاء حساب جديد'),
+            child: Text(_isSignUp
+                ? 'لديك حساب بالفعل؟ سجل دخولك'
+                : 'ليس لديك حساب؟ اضغط لإنشاء حساب جديد'),
           ),
         ],
       ),
@@ -5637,7 +5939,7 @@ class _AuthScreenState extends State<AuthScreen> {
 }
 
 // ==============================================================================
-// 13. دالة نقطة البداية وتشغيل التطبيق (main function)
+// دالة البداية ونقطة الانطلاق (main function)
 // ==============================================================================
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
